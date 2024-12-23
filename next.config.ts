@@ -2,8 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['files.stripe.com'], // Add any other domains you need
-  }
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'files.stripe.com',
+        port: '', // Leave empty for default ports (80 for HTTP, 443 for HTTPS)
+        pathname: '/**', // Matches all paths under the hostname
+      },
+    ],
+  },
 };
 
 export default nextConfig;
